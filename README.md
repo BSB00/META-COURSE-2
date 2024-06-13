@@ -3,8 +3,7 @@
 <h2>Introduction</h2>
 <p>
     
-    The 'MyToken' Smart Contract is a unique token created on the Ethereum blockchain. 
-    It allows for the creation and destruction of tokens, monitors the overall supply, and keeps track of individual address balances.
+   The 'MyToken' Smart Contract is a unique token created on the Ethereum blockchain. It allows for the creation and destruction of tokens, monitors the overall supply, and keeps track of individual address balances.
 
 </p>
 
