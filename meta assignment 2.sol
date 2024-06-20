@@ -1,0 +1,37 @@
+// SPDX-License-Identifier: SPDX-License
+
+pragma solidity ^0.8.18;
+
+// REQUIREMENTS 
+
+// Your contract must include public variables that store the details about your coin (Token Name, Token Symbol, Total Supply).
+// Your contract must include a mapping of addresses to balances (address => uint).
+// You will have a create function that takes two parameters: an address and a value.
+// The function increases the total supply by that number and increases the balance associated with that address by that amount.
+// Your contract must include a destroy function, which works the opposite of the create function, as it will destroy tokens.
+// It will take an address and value just like the create function. It will then deduct the value from the total supply and from the balance of the address.
+// Lastly, your destroy function should have conditionals to make sure the balance of the account is greater than or equal to the amount that is supposed to be destroyed.
+
+contract MyCoin {
+
+    // public variables here
+    string public coinName = "AVCOIN";
+    string public coinSymbol = "AVC";
+    uint public totalcoinSupply = 0;
+
+    // mapping variable here
+    mapping(address => uint) public coinBalances;
+
+    // create function
+    function create(address _addr, uint _val) public {
+        totalcoinSupply += _val;
+        coinBalances[_addr] += _val;
+    }
+
+    // destroy function
+    function destroy(address _addr, uint _val) public {
+        require(coinBalances[_addr] >= _val, "Insufficient balance to destroy.");
+        totalcoinSupply -= _val;
+        coinBalances[_addr] -= _val;
+    }
+}
